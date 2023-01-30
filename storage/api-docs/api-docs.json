@@ -1,8 +1,8 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "Your super  ApplicationAPI",
-        "version": "1.0.0"
+        "title": "Performer API ",
+        "version": "0.1"
     },
     "paths": {
         "/api/register": {
@@ -10,71 +10,60 @@
                 "tags": [
                     "Register"
                 ],
-                "summary": "User Register",
-                "description": "User Register here",
-                "operationId": "Register",
-                "requestBody": {
-                    "content": {
-                        "multipart/form-data": {
-                            "schema": {
-                                "required": [
-                                    "name",
-                                    "email",
-                                    "password",
-                                    "password_confirmation"
-                                ],
-                                "properties": {
-                                    "name": {
-                                        "type": "text"
-                                    },
-                                    "email": {
-                                        "type": "text"
-                                    },
-                                    "password": {
-                                        "type": "password"
-                                    },
-                                    "password_confirmation": {
-                                        "type": "password"
-                                    }
-                                },
-                                "type": "object"
-                            }
-                        },
-                        "application/json": {
-                            "schema": {}
+                "summary": "Tree step",
+                "operationId": "a718f172ff3ac464d723835815f8fb57",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "password_confirmation",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
                         }
                     }
-                },
+                ],
                 "responses": {
-                    "201": {
-                        "description": "Register Successfully",
-                        "content": {
-                            "application/json": {
-                                "schema": {}
-                            }
-                        }
-                    },
                     "200": {
-                        "description": "Register Successfully",
+                        "description": "Success",
                         "content": {
-                            "application/json": {
-                                "schema": {}
-                            }
+                            "application/json": {}
                         }
                     },
-                    "422": {
-                        "description": "Unprocessable Entity",
-                        "content": {
-                            "application/json": {
-                                "schema": {}
-                            }
-                        }
+                    "401": {
+                        "description": "Unauthenticated"
                     },
                     "400": {
-                        "description": "Bad request"
+                        "description": "Bad Request"
                     },
                     "404": {
-                        "description": "Resource Not Found"
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
                     }
                 }
             }
@@ -84,65 +73,85 @@
                 "tags": [
                     "Login"
                 ],
-                "summary": "User Login",
-                "description": "Login User Here",
-                "operationId": "authLogin",
-                "requestBody": {
-                    "content": {
-                        "multipart/form-data": {
-                            "schema": {
-                                "required": [
-                                    "email",
-                                    "password"
-                                ],
-                                "properties": {
-                                    "email": {
-                                        "type": "email"
-                                    },
-                                    "password": {
-                                        "type": "password"
-                                    }
-                                },
-                                "type": "object"
-                            }
-                        },
-                        "application/json": {
-                            "schema": {}
+                "summary": "Tree step",
+                "operationId": "44212a9096e4b09358281e9ec8a0701d",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
                         }
                     }
-                },
+                ],
                 "responses": {
-                    "201": {
-                        "description": "Login Successfully",
-                        "content": {
-                            "application/json": {
-                                "schema": {}
-                            }
-                        }
-                    },
                     "200": {
-                        "description": "Login Successfully",
+                        "description": "Success",
                         "content": {
-                            "application/json": {
-                                "schema": {}
-                            }
+                            "application/json": {}
                         }
                     },
-                    "422": {
-                        "description": "Unprocessable Entity",
-                        "content": {
-                            "application/json": {
-                                "schema": {}
-                            }
-                        }
+                    "401": {
+                        "description": "Unauthenticated"
                     },
                     "400": {
-                        "description": "Bad request"
+                        "description": "Bad Request"
                     },
                     "404": {
-                        "description": "Resource Not Found"
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
                     }
                 }
+            }
+        },
+        "/api/userInfo": {
+            "get": {
+                "tags": [
+                    "UserInfo"
+                ],
+                "summary": "Tree step",
+                "operationId": "0f613b2bf92acffefd4818c87f83dcd0",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "name": "Authorization",
+                "in": "header",
+                "scheme": "Bearer"
             }
         }
     }
