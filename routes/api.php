@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\DescController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,9 @@ Route::post('register', [AuthController::class, 'register']);
 Route::get('userInfo', [AuthController::class, 'userInfo']);
 Route::put('/user/{id}', [UserAuthController::class , 'update']);
 Route::delete('/user/{id}', [UserAuthController::class , 'delete']);
+
+Route::post('comment', [DescController::class , 'comment']);
+
 
 // Route::post('/login', 'Auth\ApiAuthController@login')->name('login.api');
 // Route::post('/register', 'Auth\ApiAuthController@register')->name('register.api');
