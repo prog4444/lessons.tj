@@ -11,7 +11,7 @@ class DescController extends Controller
       /**
      * @OA\Post(
      *   path="/api/comment",
-     *   tags={"Comment"},
+     *   tags={"User"},
      *   summary="Tree step",
      *
      *   @OA\Parameter(
@@ -68,7 +68,7 @@ class DescController extends Controller
         $desc = Description::create([
             'user_id' => $request->user_id,
             'comment' => $request->comment,
-            
+
         ]);
         return response()->json(
             [

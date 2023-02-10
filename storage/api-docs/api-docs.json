@@ -8,7 +8,7 @@
         "/api/register": {
             "post": {
                 "tags": [
-                    "Register"
+                    "User"
                 ],
                 "summary": "Tree step",
                 "operationId": "a718f172ff3ac464d723835815f8fb57",
@@ -71,7 +71,7 @@
         "/api/login": {
             "post": {
                 "tags": [
-                    "Login"
+                    "User"
                 ],
                 "summary": "Tree step",
                 "operationId": "44212a9096e4b09358281e9ec8a0701d",
@@ -118,7 +118,7 @@
         "/api/userInfo": {
             "get": {
                 "tags": [
-                    "UserInfo"
+                    "User"
                 ],
                 "summary": "Tree step",
                 "operationId": "0f613b2bf92acffefd4818c87f83dcd0",
@@ -144,10 +144,128 @@
                 }
             }
         },
+        "/api/register-admin": {
+            "post": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Tree step",
+                "operationId": "f6d2152b4ddaabaf622473204cd3bde4",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "role",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "login",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "password_confirmation",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/login-admin": {
+            "post": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Tree step",
+                "operationId": "1ef71b6b7cf028f7ff41e1e91b303b58",
+                "parameters": [
+                    {
+                        "name": "login",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
         "/api/comment": {
             "post": {
                 "tags": [
-                    "Comment"
+                    "User"
                 ],
                 "summary": "Tree step",
                 "operationId": "3f6f13e9e99a6a776e4c4603ee2b500b",

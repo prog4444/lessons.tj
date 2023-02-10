@@ -1,20 +1,20 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
+use App\Models\Admin\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
-class AuthController extends Controller
+class AdminController extends Controller
 {
- /**
+     /**
      * @OA\Post(
-     *   path="/api/register",
-     *   tags={"User"},
+     *   path="/api/register-admin",
+     *   tags={"Admin"},
      *   summary="Tree step",
      *
      *   @OA\Parameter(
@@ -26,13 +26,21 @@ class AuthController extends Controller
      *      )
      *   ),
      *   @OA\Parameter(
-     *      name="email",
+     *      name="role",
      *      in="query",
      *      required=true,
      *      @OA\Schema(
      *          type="string"
      *      )
      *   ),
+      *   @OA\Parameter(
+      *      name="login",
+      *      in="query",
+      *      required=true,
+      *      @OA\Schema(
+      *          type="string"
+      *      )
+      *   ),
      *   @OA\Parameter(
      *      name="password",
      *      in="query",
@@ -74,10 +82,11 @@ class AuthController extends Controller
      *   )
      * )
      **/
-    public function register (Request $request) {
+    public function register_admin(Request $request) {
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'role' => 'required|string',
+            'login' => 'required|string',
             'password' => 'required|string|min:6|confirmed',
         ]);
         if ($validator->fails())
@@ -86,20 +95,20 @@ class AuthController extends Controller
         }
         $request['password']=Hash::make($request['password']);
         $request['remember_token'] = Str::random(10);
-        $user = User::create($request->toArray());
-        $token = $user->createToken('Laravel Password Grant Client')->accessToken;
+        $admin = Admin::create($request->toArray());
+        $token = $admin->createToken('Laravel Password Grant Client')->accessToken;
         $response = ['token' => $token];
         return response($response, 200);
     }
 
    /**
      * @OA\Post(
-     *   path="/api/login",
-     *   tags={"User"},
+     *   path="/api/login-admin",
+     *   tags={"Admin"},
      *   summary="Tree step",
      *
      *   @OA\Parameter(
-     *      name="email",
+     *      name="login",
      *      in="query",
      *      required=true,
      *      @OA\Schema(
@@ -139,16 +148,16 @@ class AuthController extends Controller
      *   )
      * )
      **/
-    public function login (Request $request) {
+    public function login_admin(Request $request) {
         $validator = Validator::make($request->all(), [
-            'email' => 'required|string|exists:users,email',
+            'login' => 'required|string|exists:admin_user,login',
             'password' => 'required|string',
         ]);
         if ($validator->fails())
         {
             return response(['errors'=>$validator->errors()->all()], 422);
         }
-        $user = User::where('email', $request->email)->first();
+        $user = Admin::where('login', $request->login)->first();
         if ($user) {
             if (Hash::check($request->password, $user->password)) {
                 $token = $user->createToken('Laravel Password Grant Client')->accessToken;
@@ -164,81 +173,4 @@ class AuthController extends Controller
         }
     }
 
- /**
-     * @OA\Get(
-     *   path="/api/userInfo",
-     *   tags={"User"},
-     *   summary="Tree step",
-     *   @OA\Response(
-     *      response=200,
-     *       description="Success",
-     *      @OA\MediaType(
-     *           mediaType="application/json",
-     *      )
-     *   ),
-     *   @OA\Response(
-     *      response=401,
-     *       description="Unauthenticated"
-     *   ),
-     *   @OA\Response(
-     *      response=400,
-     *      description="Bad Request"
-     *   ),
-     *   @OA\Response(
-     *      response=404,
-     *      description="not found"
-     *   ),
-     *   @OA\Response(
-     *       response=403,
-     *       description="Forbidden"
-     *   )
-     * )
-     **/
-
-    public function userInfo()
-    {
-        $user = User::all();
-        return response()->json(
-            [
-                "data" => [
-                    "type" => "activities",
-                    "message" => "Success",
-                    "data" => $user,
-                ],
-            ],
-            200
-        );
-    }
-
-    public function update(Request $request, $id)
-    {
-        $user = User::find($id);
-        $user->name = $request->name;
-        $user->save();
-        return response()->json(
-            [
-                "data" => [
-                    "type" => "activities",
-                    "message" => "Success",
-                    "data" => $user,
-                ],
-            ],
-            200
-        );
-    }
-    public function delete(Request $request, $id)
-    {
-        $user = User::find($id);
-        $user->delete();
-        return response()->json(
-            [
-                "data" => [
-                    "type" => "activities",
-                    "message" => "Success",
-                    "data" => "deleted!",
-                ],
-            ],
-            200
-        );
-    }
 }

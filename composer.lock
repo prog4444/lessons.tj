@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2a1ef78fc4c0304b1061ef107d430925",
+    "content-hash": "0505a0463f3f0b95ce560def4c42695e",
     "packages": [
         {
             "name": "brick/math",
@@ -1785,16 +1785,16 @@
         },
         {
             "name": "laravel/passport",
-            "version": "v11.5.1",
+            "version": "v11.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/passport.git",
-                "reference": "b20282266211a0a19b0294d3459b5fd268807a6c"
+                "reference": "d8cc34766635da552a9ddff80248c5505f19bd04"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/passport/zipball/b20282266211a0a19b0294d3459b5fd268807a6c",
-                "reference": "b20282266211a0a19b0294d3459b5fd268807a6c",
+                "url": "https://api.github.com/repos/laravel/passport/zipball/d8cc34766635da552a9ddff80248c5505f19bd04",
+                "reference": "d8cc34766635da552a9ddff80248c5505f19bd04",
                 "shasum": ""
             },
             "require": {
@@ -1858,7 +1858,7 @@
                 "issues": "https://github.com/laravel/passport/issues",
                 "source": "https://github.com/laravel/passport"
             },
-            "time": "2023-01-16T14:52:08+00:00"
+            "time": "2023-02-03T15:45:23+00:00"
         },
         {
             "name": "laravel/sanctum",
@@ -9923,5 +9923,5 @@
         "php": "^8.0.2"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.3.0"
 }

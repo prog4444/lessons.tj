@@ -15,6 +15,9 @@ use App\Http\Controllers\DescController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::post('register-admin', [\App\Http\Controllers\Admin\AdminController::class , 'register_admin']);
+Route::post('login-admin', [\App\Http\Controllers\Admin\AdminController::class , 'login_admin']);
+
 
 Route::post('login', [AuthController::class, 'login' ]);
 Route::post('register', [AuthController::class, 'register']);
@@ -25,5 +28,3 @@ Route::delete('/user/{id}', [UserAuthController::class , 'delete']);
 Route::post('comment', [DescController::class , 'comment']);
 
 
-// Route::post('/login', 'Auth\ApiAuthController@login')->name('login.api');
-// Route::post('/register', 'Auth\ApiAuthController@register')->name('register.api');
