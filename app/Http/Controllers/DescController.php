@@ -10,7 +10,7 @@ class DescController extends Controller
 {
       /**
      * @OA\Post(
-     *   path="/api/comment",
+     *   path="/api/user/comment",
      *   tags={"User"},
      *   summary="Tree step",
      *

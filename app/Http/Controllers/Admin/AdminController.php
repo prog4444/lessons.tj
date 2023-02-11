@@ -13,7 +13,7 @@ class AdminController extends Controller
 {
      /**
      * @OA\Post(
-     *   path="/api/register-admin",
+     *   path="/api/admin/register-admin",
      *   tags={"Admin"},
      *   summary="Tree step",
      *
@@ -103,7 +103,7 @@ class AdminController extends Controller
 
    /**
      * @OA\Post(
-     *   path="/api/login-admin",
+     *   path="/api/admin/login-admin",
      *   tags={"Admin"},
      *   summary="Tree step",
      *

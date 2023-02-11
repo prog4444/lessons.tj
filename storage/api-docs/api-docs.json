@@ -5,13 +5,13 @@
         "version": "0.1"
     },
     "paths": {
-        "/api/register": {
+        "/api/user/register": {
             "post": {
                 "tags": [
                     "User"
                 ],
                 "summary": "Tree step",
-                "operationId": "a718f172ff3ac464d723835815f8fb57",
+                "operationId": "2d2ebba728688d7f51887b0cd28ca35a",
                 "parameters": [
                     {
                         "name": "name",
@@ -68,13 +68,13 @@
                 }
             }
         },
-        "/api/login": {
+        "/api/user/login": {
             "post": {
                 "tags": [
                     "User"
                 ],
                 "summary": "Tree step",
-                "operationId": "44212a9096e4b09358281e9ec8a0701d",
+                "operationId": "0e18ef6db0c92942c80f123acaeef89c",
                 "parameters": [
                     {
                         "name": "email",
@@ -115,13 +115,13 @@
                 }
             }
         },
-        "/api/userInfo": {
+        "/api/user/userInfo": {
             "get": {
                 "tags": [
                     "User"
                 ],
                 "summary": "Tree step",
-                "operationId": "0f613b2bf92acffefd4818c87f83dcd0",
+                "operationId": "e00eeed3626e47f0f22104e8d2234cf6",
                 "responses": {
                     "200": {
                         "description": "Success",
@@ -144,13 +144,13 @@
                 }
             }
         },
-        "/api/register-admin": {
+        "/api/admin/register-admin": {
             "post": {
                 "tags": [
                     "Admin"
                 ],
                 "summary": "Tree step",
-                "operationId": "f6d2152b4ddaabaf622473204cd3bde4",
+                "operationId": "6498c7824552773e914cbacc48f99583",
                 "parameters": [
                     {
                         "name": "name",
@@ -215,13 +215,13 @@
                 }
             }
         },
-        "/api/login-admin": {
+        "/api/admin/login-admin": {
             "post": {
                 "tags": [
                     "Admin"
                 ],
                 "summary": "Tree step",
-                "operationId": "1ef71b6b7cf028f7ff41e1e91b303b58",
+                "operationId": "bf18e7cb2162aec9b9e443ea965f43fc",
                 "parameters": [
                     {
                         "name": "login",
@@ -262,13 +262,13 @@
                 }
             }
         },
-        "/api/comment": {
+        "/api/user/comment": {
             "post": {
                 "tags": [
                     "User"
                 ],
                 "summary": "Tree step",
-                "operationId": "3f6f13e9e99a6a776e4c4603ee2b500b",
+                "operationId": "0f1231a6f4464863f9a605330755d7ca",
                 "parameters": [
                     {
                         "name": "user_id",

@@ -13,7 +13,7 @@ class AuthController extends Controller
 {
  /**
      * @OA\Post(
-     *   path="/api/register",
+     *   path="/api/user/register",
      *   tags={"User"},
      *   summary="Tree step",
      *
@@ -94,7 +94,7 @@ class AuthController extends Controller
 
    /**
      * @OA\Post(
-     *   path="/api/login",
+     *   path="/api/user/login",
      *   tags={"User"},
      *   summary="Tree step",
      *
@@ -166,7 +166,7 @@ class AuthController extends Controller
 
  /**
      * @OA\Get(
-     *   path="/api/userInfo",
+     *   path="/api/user/userInfo",
      *   tags={"User"},
      *   summary="Tree step",
      *   @OA\Response(

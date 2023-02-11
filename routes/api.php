@@ -15,16 +15,19 @@ use App\Http\Controllers\DescController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::post('register-admin', [\App\Http\Controllers\Admin\AdminController::class , 'register_admin']);
-Route::post('login-admin', [\App\Http\Controllers\Admin\AdminController::class , 'login_admin']);
+Route::prefix('admin')->group(function () {
+    Route::post('register-admin', [\App\Http\Controllers\Admin\AdminController::class , 'register_admin']);
+    Route::post('login-admin', [\App\Http\Controllers\Admin\AdminController::class , 'login_admin']);
+    
+});
 
+Route::prefix('user')->group(function () {
+    Route::post('login', [AuthController::class, 'login' ]);
+    Route::post('register', [AuthController::class, 'register']);
+    Route::get('userInfo', [AuthController::class, 'userInfo']);
+    Route::put('/user/{id}', [UserAuthController::class , 'update']);
+    Route::delete('/user/{id}', [UserAuthController::class , 'delete']);
 
-Route::post('login', [AuthController::class, 'login' ]);
-Route::post('register', [AuthController::class, 'register']);
-Route::get('userInfo', [AuthController::class, 'userInfo']);
-Route::put('/user/{id}', [UserAuthController::class , 'update']);
-Route::delete('/user/{id}', [UserAuthController::class , 'delete']);
-
-Route::post('comment', [DescController::class , 'comment']);
-
-
+    Route::post('comment', [DescController::class , 'comment']);
+   
+});
