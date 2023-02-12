@@ -18,7 +18,10 @@ use App\Http\Controllers\DescController;
 Route::prefix('admin')->group(function () {
     Route::post('register-admin', [\App\Http\Controllers\Admin\AdminController::class , 'register_admin']);
     Route::post('login-admin', [\App\Http\Controllers\Admin\AdminController::class , 'login_admin']);
-    
+    Route::post('create', [lessonsController::class, 'create']);
+    Route::get('read', [lessonsController::class, 'read']);
+    Route::patch('update/{id}', [lessonsController::class, 'update']);
+    Route::post('delete/{id}', [lessonsController::class, 'delete']);
 });
 
 Route::prefix('user')->group(function () {
