@@ -18,19 +18,21 @@ use App\Http\Controllers\DescController;
 Route::prefix('admin')->group(function () {
     Route::post('register-admin', [\App\Http\Controllers\Admin\AdminController::class , 'register_admin']);
     Route::post('login-admin', [\App\Http\Controllers\Admin\AdminController::class , 'login_admin']);
+    // admin route
     Route::post('create', [lessonsController::class, 'create']);
     Route::get('read', [lessonsController::class, 'read']);
     Route::patch('update/{id}', [lessonsController::class, 'update']);
     Route::post('delete/{id}', [lessonsController::class, 'delete']);
+  
 });
 
 Route::prefix('user')->group(function () {
-    Route::post('login', [AuthController::class, 'login' ]);
-    Route::post('register', [AuthController::class, 'register']);
+    // user route
     Route::get('userInfo', [AuthController::class, 'userInfo']);
     Route::put('/user/{id}', [UserAuthController::class , 'update']);
     Route::delete('/user/{id}', [UserAuthController::class , 'delete']);
-
     Route::post('comment', [DescController::class , 'comment']);
-   
 });
+// user auth
+Route::post('login', [AuthController::class, 'login' ]);
+Route::post('register', [AuthController::class, 'register']);

@@ -5,13 +5,13 @@
         "version": "0.1"
     },
     "paths": {
-        "/api/user/register": {
+        "/api/register": {
             "post": {
                 "tags": [
                     "User"
                 ],
                 "summary": "Tree step",
-                "operationId": "2d2ebba728688d7f51887b0cd28ca35a",
+                "operationId": "a718f172ff3ac464d723835815f8fb57",
                 "parameters": [
                     {
                         "name": "name",
@@ -68,13 +68,13 @@
                 }
             }
         },
-        "/api/user/login": {
+        "/api/login": {
             "post": {
                 "tags": [
                     "User"
                 ],
                 "summary": "Tree step",
-                "operationId": "0e18ef6db0c92942c80f123acaeef89c",
+                "operationId": "44212a9096e4b09358281e9ec8a0701d",
                 "parameters": [
                     {
                         "name": "email",
