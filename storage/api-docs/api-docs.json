@@ -265,7 +265,7 @@
         "/api/admin/create": {
             "post": {
                 "tags": [
-                    "CRUD_ADMIN"
+                    "Admin"
                 ],
                 "operationId": "8734a9c69cf654a96565b3f81a6bb65b",
                 "parameters": [
@@ -318,7 +318,7 @@
         "/api/admin/read": {
             "get": {
                 "tags": [
-                    "CRUD_ADMIN"
+                    "Admin"
                 ],
                 "operationId": "31d1d3b2ecf8d9e68baab72e3421c373",
                 "responses": {
@@ -345,7 +345,7 @@
         "/api/admin/update/{id}": {
             "patch": {
                 "tags": [
-                    "CRUD_ADMIN"
+                    "Admin"
                 ],
                 "operationId": "e10e964a9e642aed072687795f336bfa",
                 "parameters": [
@@ -398,7 +398,7 @@
         "/api/admin/delete/{id}": {
             "post": {
                 "tags": [
-                    "CRUD_ADMIN"
+                    "Admin"
                 ],
                 "operationId": "b864da10d218b5a4ef75291053ac9af8",
                 "parameters": [

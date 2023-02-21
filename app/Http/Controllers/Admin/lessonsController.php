@@ -3,14 +3,16 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin\Lessons;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class lessonsController extends Controller
 {
         /**
      * @OA\Post(
      ** path="/api/admin/create",
-     *   tags={"CRUD_ADMIN"},
+     *   tags={"Admin"},
      *   security={{"bearerAuth":{}}},
      *
      *   @OA\Parameter(
@@ -70,7 +72,7 @@ class lessonsController extends Controller
        /**
      * @OA\Get(
      ** path="/api/admin/read",
-     *   tags={"CRUD_ADMIN"},
+     *   tags={"Admin"},
      *   security={{"bearerAuth":{}}},
      *   @OA\Response(response=200,description="Success",
      *      @OA\MediaType(mediaType="application/json",)
@@ -90,7 +92,7 @@ class lessonsController extends Controller
        /**
      * @OA\Patch(
      ** path="/api/admin/update/{id}",
-     *   tags={"CRUD_ADMIN"},
+     *   tags={"Admin"},
      *   security={{"bearerAuth":{}}},
      *   @OA\Parameter(
      *      name="name_auto",
@@ -167,7 +169,7 @@ class lessonsController extends Controller
        /**
      * @OA\Post(
      ** path="/api/admin/delete/{id}",
-     *   tags={"CRUD_ADMIN"},
+     *   tags={"Admin"},
      *   security={{"bearerAuth":{}}},
      *
      *   @OA\Parameter(
